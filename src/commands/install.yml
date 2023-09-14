@@ -1,0 +1,6 @@
+description: >
+  Install Deno within a build.
+steps:
+  - run:
+      name: Install Deno
+      command: <<include(scripts/install.sh)>>

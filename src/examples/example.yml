@@ -1,13 +1,18 @@
 description: >
-  Sample example description.
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
+  The steps needed to use Deno on CircleCI
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    deno: ksylvest/budenon@1.0.1
+  jobs:
+    example:
+      docker:
+        - image: cimg/base:stable
+      steps:
+        - checkout
+        - deno/install
+        - run: deno run main.ts
   workflows:
-    use-my-orb:
+    main:
       jobs:
-        - <orb-name>/<job-name>
+        - example
